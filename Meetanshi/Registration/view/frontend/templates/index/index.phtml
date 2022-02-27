@@ -1,0 +1,233 @@
+<button id="open-model">Registration</button>
+<div id="custom-model" style="display:none;">
+<div class="row">
+    <div class="col-md-8">
+        <form name="add-data" action="<?php echo $block->getFormAction(); ?>" method="post" id="add-data" autocomplete="off" data-mage-init='{"validation":{}}' data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>" >
+        <!-- <fieldset class="fieldset"> -->
+        <div class="row">
+            <div class="column">
+                <fieldset class="fieldset">
+                    <div class="fields col-md-6">
+                        <div class="field prefix required">
+                            <label class="label" for="prefix"><span>Prefix</span></label>
+                            <div class="control">
+                                <select id="prefix" name="prefix" title="Prefix" data-validate="{required:true}">
+                                    <option value="" selected="selected"></option>
+                                    <option value="1">Mr</option>
+                                    <option value="2">Ms</option>
+                                    <option value="3">Mrs</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field firstname required">
+                            <label class="label" for="title"><span><?= $block->
+                                escapeHtmlAttr(__('Firstname')) ?></span></label>
+                            <div class="control">
+                                <input name="firstname" id="firstname" title="Firstname" value="" class="input-text" type="text"
+                                       data-validate="{required:true, 'no-whitespace':true, 'validate-alpha':true}">
+                            </div>
+                        </div>
+                        <div class="field lastname required">
+                            <label class="label" for="title"><span><?= $block->
+                                escapeHtmlAttr(__('Lastname')) ?></span></label>
+                            <div class="control">
+                                <input name="lastname" id="lastname" title="Lastname" value="" class="input-text" type="text"
+                                       data-validate="{required:true, 'no-whitespace':true, 'validate-alpha':true}">
+                            </div>
+                        </div>
+                        <div class="field email required">
+                            <label class="label" for="title"><span><?= $block->
+                                escapeHtmlAttr(__('Email')) ?></span></label>
+                            <div class="control">
+                                <input name="email" id="email" title="Email" value="" class="input-text" type="text"
+                                       data-validate="{required:true, 'validate-email':true}">
+                            </div>
+                        </div>
+                        <div class="field gender required">
+                            <label class="label" for="gender"><span>Gender</span></label>
+                            <div class="control">
+                                <select id="gender" name="gender" title="Gender" data-validate="{required:true}">
+                                    <option value="" selected="selected"></option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                    <option value="3">Not Specified</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field dob required">
+                            <label class="label" for="dob"><span>Date Of Birth</span></label>
+                            <div class="control">
+                                <input type="text" name="datepicker" id="datepicker" value="" class="datepicker" title="Date Of Birth" data-validate="{required:true}">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>     
+            </div>
+            <div class="column">
+                <?php $countryList=$block->getCountries(); ?>
+                <?php $regionList=$block->getRegion();  ?>
+                <fieldset class="address fieldset">
+                    <div class="field country required">
+                       <label class="label" for="country"><span><?php /* @escapeNotVerified */ echo __('Country') ?></span></label>
+                       <div class="control"><?php echo $countryList?></div>
+                    </div>
+                    <div class="field region required">
+                       <label class="label" for="state"><span><?php /* @escapeNotVerified */ echo __('State') ?></span></label>
+                       <div class="control">
+                       <?php echo $regionList?>
+                       </div>
+                    </div>
+                   <div class="field states required" style="display:none">
+                        <label class="label" for="states"><span><?php /* @escapeNotVerified */ echo __('State') ?></span>    </label>
+                        <div class="control">
+                        <input name="state" id="states" title="<?php /* @escapeNotVerified */ echo __('State') ?>"  class="input-text" type="text" />
+                        </div>
+                    </div>
+                    <div class="field street required">
+                        <label for="street_1" class="label"><span>Street Address</span></label>
+                        <div class="control">
+                            <div class="field primary">
+                                <label for="street_1" class="label">
+                                    <span>Street Address: Line 1</span>
+                                </label>
+                            </div>
+                            <input type="text" name="street[]" value="" title="Street Address" id="street_1" class="input-text required-entry" aria-required="true">
+                            <div class="nested">
+                                <div class="field additional">
+                                    <label class="label" for="street_2">
+                                            <span>Street Address: Line 2</span>
+                                    </label>
+                                    <div class="control">
+                                        <input type="text" name="street[]" value="" title="Street Address 2" id="street_2" class="input-text" aria-required="true">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field city required">
+                        <label class="label" for="city">
+                            <span>City</span>
+                        </label>
+                        <div class="control">
+                            <input type="text" name="city" value="" title="City" class="input-text required-entry" id="city" aria-required="true" data-validate="{required:true, 'no-whitespace':true, 'validate-alpha':true}">
+                        </div>
+                    </div>
+                    <div class="field zip required">
+                        <label class="label" for="zip">
+                            <span>Zip/Postal Code</span>
+                        </label>
+                        <div class="control">
+                            <input type="text" name="postcode" value="" title="Zip/Postal Code" id="zip" class="input-text validate-zip" aria-required="true" data-validate="{required:true}">
+                        </div>
+                    </div>
+                    <div class="field telephone required">
+                            <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Telephone')) ?></span></label>
+                            <div class="control">
+                                <input type="tel" name="telephone" id="telephone" title="telephone" value="" class="input-text validate-number"
+                                       type="text" data-validate="{required:true}">
+                            </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>  
+       <!--  </fieldset> -->
+        <div class="actions-toolbar">
+            <div class="primary">
+                <input type="submit" id="meetanshi-registration" name="submit" class="action submit primary" title="Submit"/>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+<script>
+
+require(
+    [
+        'jquery',
+        'Magento_Ui/js/modal/modal'
+    ],
+    function($,modal) {
+        var options = {
+            type: 'popup',
+            responsive: true,
+            innerScroll: true,
+            title: 'Meetanshi Registration Form',
+            closeText: 'Close',
+            buttons: [],
+            /**
+             * Escape key press handler,
+             * close modal window
+             */
+            escapeKey: function () {
+                if (this.options.isOpen && this.modal.find(document.activeElement).length ||
+                    this.options.isOpen && this.modal[0] === document.activeElement) {
+                    this.closeModal();
+                }
+            }
+        };
+        var popup = modal(options, $('#custom-model'));
+        $("#open-model").on("click",function(){
+            $('#custom-model').modal('openModal');
+        });
+    }
+);
+
+require([
+    "jquery",
+    "mage/mage",
+    'moment',
+    'mageUtils',
+    'jquery/validate',
+    'validation',
+    "mage/calendar",
+    'mage/translate'
+], function($, moment, utils){
+    'use strict';
+    var dataForm = $('#add-data');
+    $("#datepicker").datepicker({
+          showMonthAfterYear: false,
+          dateFormat:'yy/mm/dd',
+          changeMonth: true,
+          changeYear: true,
+          maxDate: new Date()
+        });
+   // $( "#datepicker" ).datepicker({  maxDate: new Date() });
+    dataForm.mage('validation', {
+        errorPlacement: function(error, element) {
+            if (element.attr('data-validate') && element.attr('data-validate').indexOf('validate-one-required-by-name') >= 0) {
+                error.appendTo('#gender-option-error-message-container');
+            } else {
+                element.after(error);
+            }
+        },
+    });
+});
+
+require(['jquery'], function($) {
+
+    $(document).on('change','#country',function() {
+        var param = 'country='+$('#country').val();
+        $.ajax({
+            showLoader: true,
+            url: '<?php /* @escapeNotVerified */ echo $block->getCountryAction(); ?>',
+            data: param,
+            type: "GET",
+            dataType: 'json'
+        }).done(function (data) {
+            $('#state').empty();
+            if(data.value=='')
+            {
+                $('.field.states.required').show();
+                $('.field.region.required').hide();
+            }
+            else
+            {
+                $('#state').append(data.value);
+                $('.field.states.required').hide();
+                $('.field.region.required').show();
+            }
+         });
+    });
+});
+</script>

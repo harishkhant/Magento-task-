@@ -1,0 +1,15 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="meetanshi_registration_data_source" xsi:type="string">Meetanshi\Registration\Model\ResourceModel\Registration\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Meetanshi\Registration\Model\ResourceModel\Registration\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">meetanshi_registration</argument>
+            <argument name="resourceModel" xsi:type="string">Meetanshi\Registration\Model\ResourceModel\Registration</argument>
+        </arguments>
+    </virtualType>
+</config>

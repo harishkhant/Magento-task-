@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Meetanshi_Registration::manager" title="Meetanshi Registration" module="Meetanshi_Registration" sortOrder="10" resource="Meetanshi_Registration::manager"/>
+        <add id="Meetanshi_Registration::add_row" title="Meetanshi User Registration" module="Meetanshi_Registration" sortOrder="20" parent="Meetanshi_Registration::manager" action="myregistration/registration/index" resource="Meetanshi_Registration::add_row"/>
+    </menu>
+</config>
