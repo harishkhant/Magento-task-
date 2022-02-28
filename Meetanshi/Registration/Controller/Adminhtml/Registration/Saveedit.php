@@ -58,7 +58,7 @@ class Saveedit extends Action
         $entityModel->setData('state',$myArray["rowdata"]["state"]);
     }
     $entityModel->setData('postcode',$myArray["rowdata"]["postcode"]);
-    $entityModel->setData('country',$myArray["rowdata"]["country_id"]);
+    $entityModel->setData('country',$myArray["rowdata"]["country"]);
     $entityModel->setData('telephone',$myArray["rowdata"]["telephone"]);
     $modifiedDate = date("y-m-d h:i:s");
     $entityModel->setData('update_at',$modifiedDate);
