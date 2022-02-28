@@ -53,6 +53,10 @@ class Save extends \Magento\Framework\App\Action\Action
         $myArray = json_decode(json_encode($data), true);
 
        $dob = $myArray["datepicker"];
+        if($myArray["state"]){
+            $myArray["region"] = $myArray["state"];
+        }
+
         $fulladdress =  $myArray['street'][0]."  ".$myArray['street'][1];
         $fullname =  $myArray["firstname"]." ".$myArray["lastname"];
         $entityModel->setData('title',$myArray["prefix"]);
@@ -66,7 +70,7 @@ class Save extends \Magento\Framework\App\Action\Action
         $entityModel->setData('address',$fulladdress); 
         $entityModel->setData('gender',$myArray["gender"]);
         $entityModel->setData('city',$myArray["city"]);
-        $entityModel->setData('state',$myArray["region"]); 
+        $entityModel->setData('state',$myArray["region"]);
         $entityModel->setData('postcode',$myArray["postcode"]);
         $entityModel->setData('country',$myArray["country_id"]);
         $entityModel->setData('telephone',$myArray["telephone"]);
