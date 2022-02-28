@@ -66,10 +66,10 @@ class Save extends \Magento\Framework\App\Action\Action
         $entityModel->setData('address',$fulladdress); 
         $entityModel->setData('gender',$myArray["gender"]);
         $entityModel->setData('city',$myArray["city"]);
-        if($myArray["region"]){
-            $entityModel->setData('state',$myArray["region"]);
-        }else{
+        if($myArray["state"]){
             $entityModel->setData('state',$myArray["state"]);
+        }else{
+            $entityModel->setData('state',$myArray["region"]);
         }
         
         $entityModel->setData('postcode',$myArray["postcode"]);
