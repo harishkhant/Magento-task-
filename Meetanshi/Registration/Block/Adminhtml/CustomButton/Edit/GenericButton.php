@@ -19,6 +19,12 @@ class GenericButton
         $this->registry = $registry;
     }
 
+    public function getId()
+    {
+        $user = $this->registry->registry('custombutton');
+        return $user ? $user->getId() : null;
+    }
+
     public function getUrl($route = '', $params = [])
     {
         return $this->urlBuilder->getUrl($route, $params);
