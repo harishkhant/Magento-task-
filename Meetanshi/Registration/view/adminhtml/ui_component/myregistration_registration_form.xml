@@ -10,6 +10,8 @@
             <item name="type" xsi:type="string">tabs</item>
         </item>
         <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Meetanshi\Registration\Block\Adminhtml\CustomButton\Edit\BackButton</item>
+            <item name="reset" xsi:type="string">Meetanshi\Registration\Block\Adminhtml\CustomButton\Edit\ResetButton</item>
             <item name="save" xsi:type="string">Meetanshi\Registration\Block\Adminhtml\CustomButton\Edit\SaveButton</item>
         </item>
     </argument>
