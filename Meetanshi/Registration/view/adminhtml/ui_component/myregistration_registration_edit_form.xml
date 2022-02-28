@@ -158,7 +158,7 @@
                 </validation>
             </settings>
         </field>
-        <field name="country_id" sortOrder="130">
+        <field name="country" sortOrder="130">
             <argument name="data" xsi:type="array">
                 <item name="options" xsi:type="object">Magento\Directory\Model\Config\Source\Country</item>
                 <item name="config" xsi:type="array">
@@ -181,7 +181,7 @@
                     <item name="label" xsi:type="string" translate="true">State/Region</item>
                     <item name="formElement" xsi:type="string">select</item>
                     <item name="source" xsi:type="string">Meetanshi\Registration\Ui\Component\Listing\Column\StateName</item>
-                    <item name="customEntry" xsi:type="string">region</item>
+                    <item name="customEntry" xsi:type="string">state</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
                     </item>
